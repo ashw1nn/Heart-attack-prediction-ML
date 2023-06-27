@@ -1,0 +1,168 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Heart attack predictor</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Heart attack predictor</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Chest Pain type</label>
+            <select class="form-control" name="cp" placeholder="Chest Pain type" required>
+                <option class="placeholder" selected disabled value="">Chest Pain type</option>
+                <option value="0">
+                    typical angina
+                </option>
+                <option value="1">
+                    atypical angina
+                </option>
+                <option value="2">
+                    non-anginal pain
+                </option>
+                <option value="3">
+                    asymptomatic
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">resting electrocardiographic result</label>
+            <select class="form-control" name="restecg" placeholder="resting electrocardiographic" required>
+                <option class="placeholder" selected disabled value="">Select resting electrocardiographic result</option>
+                <option value="0">
+                    normal
+                </option>
+                <option value="1">
+                    ST-T wave abnormality
+                </option>
+                <option value="2">
+                    probable or definite left ventricular hypertrophy by Estes' criteria
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">slope of the peak exercise ST segment</label>
+            <select class="form-control" name="slp"
+                placeholder="slp" required>
+                <option class="placeholder" selected disabled value="">Select slope of the peak exercise ST segment</option>
+                <option value="0">
+                    unsloping
+                </option>
+                <option value="1">
+                    flat
+                </option>
+                <option value="2">
+                    downsloping
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">No of major vessels</label>
+            <select class="form-control" name="caa" placeholder="Enter No of major vessels" required>
+                <option class="placeholder" selected disabled value="">Select No of major vessels</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+                <option value="3">
+                    3
+                </option>
+                <option value="4">
+                    4
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">thalassemia</label>
+            <select class="form-control" name="thall" placeholder="Enter thalassemia"
+                required>
+                <option class="placeholder" selected disabled value="">Select thalassemia</option>
+                <option value="0">
+                    null
+                </option>
+                <option value="1">
+                    fixed defect
+                </option>
+                <option value="2">
+                    normal
+                </option>
+                <option value="3">
+                    reversable defect
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fasting blood Sugar lvl</label>
+            <select class="form-control" name="fbs" placeholder="Enter fbs"
+                required>
+                <option class="placeholder" selected disabled value="">Select fbs</option>
+                <option value="1">
+                    true(greater than 120 mg per dl)
+                </option>
+                <option value="0">
+                    false(less than 120 mg per dl)
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sex</label>
+            <select class="form-control" name="sex" placeholder="Enter sex"
+                required>
+                <option class="placeholder" selected disabled value="">Select sex</option>
+                <option value="1">
+                    male
+                </option>
+                <option value="0">
+                    female
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">exercise induced angina</label>
+            <select class="form-control" name="exng" placeholder="Enter exng"
+                required>
+                <option class="placeholder" selected disabled value="">Select exng</option>
+                <option value="1">
+                    yes
+                </option>
+                <option value="0">
+                    no
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">age</label>
+            <input class="form-control" type="number" name="age"
+                placeholder="Enter your age" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">resting blood pressure (in mm Hg)</label>
+            <input class="form-control" type="number" name="trtbps"
+                placeholder="Enter your resting blood pressure" min='0' max='1000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">cholesterol in mg/dl</label>
+            <input class="form-control" type="number" name="chol"
+                placeholder="Enter your cholesterol" min='0' max='1000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">maximum heart rate achieved</label>
+            <input class="form-control" type="number" name="thalachh"
+                placeholder="Enter your maximum heart rate achieved" min='0' max='1000' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ST depression induced by exercise relative to rest</label>
+            <input class="form-control" type="number" name="oldpeak"
+                placeholder="Enter your oldpeak" min='0' max='100' step="0.1" />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your heart attack possibility" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
